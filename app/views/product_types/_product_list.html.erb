@@ -1,0 +1,6 @@
+<h1 class="pt-5 text-lg text-slate-900">Product List</h1>
+<ol class="list-disc list-inside">
+    <% for product in @products %>
+        <li class="mb-1"><%= link_to product.product_name, { controller: "products", action: "show", id:  product.id }, { class: "hover:text-blue-500" }%></li>
+    <% end %>
+</ol>

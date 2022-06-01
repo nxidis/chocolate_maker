@@ -6,7 +6,7 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Product type:</strong>
-    <%= product.product_type.name%>
+    <%= link_to product.product_type.name, { controller: "product_types", action: "show", id: product.product_type_id }, { class: "hover:text-blue-500" } %>
   </p>
 
   <p class="my-5">

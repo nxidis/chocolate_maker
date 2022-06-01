@@ -8,6 +8,7 @@ class ProductTypesController < ApplicationController
 
   # GET /product_types/1 or /product_types/1.json
   def show
+    @products = @product_type.products
   end
 
   # GET /product_types/new
