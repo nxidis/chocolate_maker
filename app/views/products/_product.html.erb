@@ -31,7 +31,9 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Description:</strong>
-    <%= product.description %>
+    <div class="trix-content">
+      <%= product.description %>
+    </div>
   </p>
 
   <% if action_name != "show" %>
