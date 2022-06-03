@@ -92,7 +92,7 @@ class BatchesController < ApplicationController
         batch_count = Batch.where("batch_date >= :start_date AND batch_date <= :end_date",
           { start_date: start_date, end_date: end_date }).size()
         @batch.batch_number = batch_number = month_year + "-" + batch_count.to_s
-        puts "Batch Number: " + @batch.batch_number
+        puts "Batch Number set to: " + @batch.batch_number
       end
 
     end
