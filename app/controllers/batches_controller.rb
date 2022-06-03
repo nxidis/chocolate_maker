@@ -76,19 +76,24 @@ class BatchesController < ApplicationController
     end
 
     def set_best_by_date
-      @batch.best_by_date = @batch.batch_date + @batch.product.shelf_life
+      if @batch.batch_date != nil then
+        @batch.best_by_date = @batch.batch_date + @batch.product.shelf_life
+      end
     end
 
     def set_batch_number
-      month_year = @batch.batch_date.to_fs(:number)[2,4]
+      if @batch.batch_date != nil then
 
-      # Get the start and end dates of the month
-      start_date = @batch.batch_date.at_beginning_of_month().to_fs(:db)
-      end_date = @batch.batch_date.at_end_of_month().to_fs(:db)
-      batch_count = Batch.where("batch_date >= :start_date AND batch_date <= :end_date",
-        { start_date: start_date, end_date: end_date }).size()
-      @batch.batch_number = batch_number = month_year + "-" + batch_count.to_s
-      puts "Batch Number: " + @batch.batch_number
+        month_year = @batch.batch_date.to_fs(:number)[2,4]
+
+        # Get the start and end dates of the month
+        start_date = @batch.batch_date.at_beginning_of_month().to_fs(:db)
+        end_date = @batch.batch_date.at_end_of_month().to_fs(:db)
+        batch_count = Batch.where("batch_date >= :start_date AND batch_date <= :end_date",
+          { start_date: start_date, end_date: end_date }).size()
+        @batch.batch_number = batch_number = month_year + "-" + batch_count.to_s
+        puts "Batch Number: " + @batch.batch_number
+      end
 
     end
 end
