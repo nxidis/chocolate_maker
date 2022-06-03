@@ -1,0 +1,6 @@
+<h1 class="pt-5 text-lg text-slate-900">Batch List</h1>
+<ol class="list-disc list-inside">
+    <% for batch in @batches%>
+        <li class="mb-1"><%= link_to batch.batch_number,  batch, { class: "hover:text-blue-500" }%></li>
+    <% end %>
+</ol>

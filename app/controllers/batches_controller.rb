@@ -3,7 +3,7 @@ class BatchesController < ApplicationController
 
   # GET /batches or /batches.json
   def index
-    @batches = Batch.all
+    @batches = Batch.order(batch_date: :desc)
   end
 
   # GET /batches/1 or /batches/1.json

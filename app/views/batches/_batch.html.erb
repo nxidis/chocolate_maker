@@ -21,14 +21,13 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Product:</strong>
-    <%= batch.product.product_name %>
+    <%= link_to batch.product.product_name,  batch.product , { class: "hover:text-blue-500" } %>
   </p>
-
-
+  
   <p class="my-5">
     <strong class="block font-medium mb-1">Product Type:</strong>
-    <%= batch.product.product_type.name %>
-  </p>
+    <%= link_to batch.product.product_type.name,  batch.product.product_type , { class: "hover:text-blue-500" } %>
+  </p> 
 
   <% if action_name != "show" %>
     <%= link_to "Show this batch", batch, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
