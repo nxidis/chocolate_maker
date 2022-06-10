@@ -1,37 +1,35 @@
 <div batch_number="<%= dom_id batch %>">
+
   <p class="my-5">
-    <strong class="block font-medium mb-1">Batch Number:</strong>
-    <%= batch.batch_number%>
+    <div class="border-2 p-5 m-2">
+      <div class="flex flex-auto">
+        <strong class="block font-medium ">Batch Number:</strong>
+        <div class="mx-2"><%= batch.batch_number%></div>
+      </div>
+
+      <div class="flex flex-auto">
+        <strong class="block font-medium mr-2">Batch date:</strong>
+        <%= batch.batch_date %>
+      </div>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Batch date:</strong>
-    <%= batch.batch_date %>
-  </p>
+    <div class="flex flex-auto">
+      <strong class="block font-medium mr-2">Product:</strong>
+      <%= link_to batch.product.product_name,  batch.product , { class: "hover:text-blue-500" } %>
+    </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Best by date:</strong>
-    <%= batch.best_by_date %>
+    <div class="flex flex-auto">
+      <strong class="block font-medium mr-2">Product Type:</strong>
+      <%= link_to batch.product.product_type.name,  batch.product.product_type , { class: "hover:text-blue-500" } %>
+    </div>
   </p>
+</div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Quanity:</strong>
-    <%= batch.quanity %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Product:</strong>
-    <%= link_to batch.product.product_name,  batch.product , { class: "hover:text-blue-500" } %>
-  </p>
-  
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Product Type:</strong>
-    <%= link_to batch.product.product_type.name,  batch.product.product_type , { class: "hover:text-blue-500" } %>
-  </p> 
-
+<div class="mx-2">
   <% if action_name != "show" %>
-    <%= link_to "Show this batch", batch, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this batch', edit_batch_path(batch), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+  <%= link_to "Show this batch", batch, class: "rounded-lg py-3 px-5 bg-gray-100 hover:bg-gray-300 inline-block font-medium" %>
+  <%= link_to 'Edit this batch', edit_batch_path(batch), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 hover:bg-gray-300 inline-block font-medium" %>
   <% end %>
+</div>
 </div>

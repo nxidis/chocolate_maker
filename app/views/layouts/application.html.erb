@@ -13,7 +13,11 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5 flex">
-      <%= link_to "Home", { controller: "tracker", action: "index" }, { class: "hover:text-blue-500" } %>
+      <div class="flex flex-col mx-5" >
+        <%= link_to "Home", { controller: "tracker", action: "index" }, { class: "hover:text-blue-500" } %>
+        <%= link_to "Batch", { controller: "batches", action: "index" }, { class: "hover:text-blue-500" } %>
+        <%= link_to "Product", { controller: "products", action: "index" }, { class: "hover:text-blue-500" } %>
+      </div>
       <%= yield %>
     </main>
   </body>
